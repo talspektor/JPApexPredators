@@ -6,28 +6,30 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
-    let predators = Predatores()
+    let predators = Predators()
     @State var searchText = ""
+    @State var alphabetical = false
+    @State var currentSelection = PredatorType.all
     
     var fillteredDinos: [ApexPredator] {
-        if searchText.isEmpty {
-            return predators.apevPredators
-        } else {
-            return predators.apevPredators.filter { predator in
-                predator.name.localizedCaseInsensitiveContains(searchText)
-            }
-        }
+        predators.fiilter(by: currentSelection)
+        
+        predators.sort(by: alphabetical)
+        return predators.search(for: searchText)
     }
     
     var body: some View {
         NavigationStack {
             List(fillteredDinos) { predator in
                 NavigationLink {
-                    Image(predator.image)
-                        .resizable()
-                        .scaledToFit()
+                    PredatorDetail(
+                        predator: predator, position: .camera(
+                            .init(centerCoordinate: predator.location, distance: 30000)
+                        )
+                    )
                 } label: {
                     HStack {
                         // Dinasaur image
@@ -56,6 +58,27 @@ struct ContentView: View {
             .searchable(text: $searchText)
             .autocorrectionDisabled()
             .animation(.default, value: searchText)
+            .animation(.default, value: alphabetical)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        alphabetical.toggle()
+                    } label: {
+                        Image(systemName: alphabetical ? "film" : "textformat")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Picker("Filter", selection: $currentSelection.animation()) {
+                            ForEach(PredatorType.allCases) { type in
+                                Label(type.rawValue.capitalized, systemImage: type.icon)
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "slider.horizontal.3")
+                    }
+                }
+            }
         }
         .preferredColorScheme(.dark)
     }
