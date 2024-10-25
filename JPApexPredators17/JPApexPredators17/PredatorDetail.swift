@@ -29,13 +29,18 @@ struct PredatorDetail: View {
                             ], startPoint: .top, endPoint: .bottom)
                         }
                     // image
-                    Image(predator.image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geo.size.width / 1.5, height: geo.size.height / 3)
-                        .scaleEffect(x: -1)
-                        .shadow(color: .black, radius: 7)
-                        .offset(y: 20)
+                    NavigationLink {
+                        Image(predator.image)
+                            .resizable()
+                    } label: {
+                        Image(predator.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geo.size.width / 1.5, height: geo.size.height / 3)
+                            .scaleEffect(x: -1)
+                            .shadow(color: .black, radius: 7)
+                            .offset(y: 20)
+                    }
                     
                 }
                 

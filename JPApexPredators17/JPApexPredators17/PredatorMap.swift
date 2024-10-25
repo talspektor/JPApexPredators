@@ -13,6 +13,7 @@ struct PredatorMap: View {
     
     @State var position: MapCameraPosition
     @State var satellite = false
+    @State var selectedPredator: ApexPredator?
     
     var body: some View {
         Map(position: $position) {
@@ -24,6 +25,14 @@ struct PredatorMap: View {
                         .frame(height: 100)
                         .shadow(color: .white, radius: 3)
                         .scaleEffect(x: -1)
+                        .onTapGesture {
+                            selectedPredator = predator // Update the selected predator
+                        }
+                    
+                    if selectedPredator?.id == predator.id {
+                        infoCard(for: predator)
+                            .transition(.move(edge: .bottom))
+                    }
                 }
             }
         }
@@ -44,6 +53,31 @@ struct PredatorMap: View {
         }
         .toolbarBackground(.automatic)
     }
+    
+    // Define the info card view
+        private func infoCard(for predator: ApexPredator) -> some View {
+            VStack(alignment: .leading) {
+                Text(predator.name)
+                    .font(.headline)
+                    .padding()
+                
+                Text("Location: \(predator.location.latitude), \(predator.location.longitude)")
+                    .font(.subheadline)
+                    .padding(.horizontal)
+                
+                Button("Close") {
+                    selectedPredator = nil // Deselect the predator
+                }
+                .padding()
+            }
+            .background(Color.blue.opacity(0.5))
+            .cornerRadius(10)
+            .shadow(radius: 10)
+            .padding()
+            .onTapGesture {
+                selectedPredator = nil
+            }
+        }
 }
 
 #Preview {
