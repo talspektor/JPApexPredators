@@ -19,8 +19,13 @@
 		F86D766C2C9BFE7700344C9B /* Death.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86D766B2C9BFE7700344C9B /* Death.swift */; };
 		F86D766F2C9C00E100344C9B /* FetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86D766E2C9C00E100344C9B /* FetchService.swift */; };
 		F8BE60F12CC921F6009D924E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE60F02CC921F6009D924E /* ViewModel.swift */; };
-		F8BE60F32CCA7E0E009D924E /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE60F22CCA7E0E009D924E /* QuoteView.swift */; };
+		F8BE60F32CCA7E0E009D924E /* FetchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE60F22CCA7E0E009D924E /* FetchView.swift */; };
 		F8BE60F52CCBDA56009D924E /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE60F42CCBDA56009D924E /* CharacterView.swift */; };
+		F8BE60F72CCBE936009D924E /* sampleepisode.json in Resources */ = {isa = PBXBuildFile; fileRef = F8BE60F62CCBE936009D924E /* sampleepisode.json */; };
+		F8BE60F92CCC218F009D924E /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE60F82CCC218F009D924E /* StringExt.swift */; };
+		F8BE60FB2CCC2294009D924E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE60FA2CCC2294009D924E /* Constants.swift */; };
+		F8BE60FD2CCC2396009D924E /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE60FC2CCC2396009D924E /* Episode.swift */; };
+		F8BE60FF2CCE4510009D924E /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE60FE2CCE4510009D924E /* EpisodeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +42,13 @@
 		F86D766B2C9BFE7700344C9B /* Death.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Death.swift; sourceTree = "<group>"; };
 		F86D766E2C9C00E100344C9B /* FetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchService.swift; sourceTree = "<group>"; };
 		F8BE60F02CC921F6009D924E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		F8BE60F22CCA7E0E009D924E /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		F8BE60F22CCA7E0E009D924E /* FetchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchView.swift; sourceTree = "<group>"; };
 		F8BE60F42CCBDA56009D924E /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		F8BE60F62CCBE936009D924E /* sampleepisode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleepisode.json; sourceTree = "<group>"; };
+		F8BE60F82CCC218F009D924E /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		F8BE60FA2CCC2294009D924E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F8BE60FC2CCC2396009D924E /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		F8BE60FE2CCE4510009D924E /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +84,12 @@
 				F86D76522C9BFB0800344C9B /* BBQuotes17App.swift */,
 				F86D76542C9BFB0800344C9B /* ContentView.swift */,
 				F8BE60F42CCBDA56009D924E /* CharacterView.swift */,
-				F8BE60F22CCA7E0E009D924E /* QuoteView.swift */,
+				F8BE60F22CCA7E0E009D924E /* FetchView.swift */,
 				F8BE60F02CC921F6009D924E /* ViewModel.swift */,
 				F86D766E2C9C00E100344C9B /* FetchService.swift */,
+				F8BE60F82CCC218F009D924E /* StringExt.swift */,
+				F8BE60FA2CCC2294009D924E /* Constants.swift */,
+				F8BE60FE2CCE4510009D924E /* EpisodeView.swift */,
 				F86D766D2C9BFEDE00344C9B /* Models */,
 				F86D76562C9BFB0900344C9B /* Assets.xcassets */,
 				F86D76602C9BFB4300344C9B /* SampleData */,
@@ -96,6 +109,7 @@
 		F86D76602C9BFB4300344C9B /* SampleData */ = {
 			isa = PBXGroup;
 			children = (
+				F8BE60F62CCBE936009D924E /* sampleepisode.json */,
 				F86D76622C9BFB5300344C9B /* samplecharacter.json */,
 				F86D76632C9BFB5300344C9B /* sampledeath.json */,
 				F86D76612C9BFB5300344C9B /* samplequote.json */,
@@ -109,6 +123,7 @@
 				F86D76672C9BFD0A00344C9B /* Quote.swift */,
 				F86D76692C9BFD4700344C9B /* Character.swift */,
 				F86D766B2C9BFE7700344C9B /* Death.swift */,
+				F8BE60FC2CCC2396009D924E /* Episode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F86D76662C9BFB5300344C9B /* sampledeath.json in Resources */,
+				F8BE60F72CCBE936009D924E /* sampleepisode.json in Resources */,
 				F86D765A2C9BFB0900344C9B /* Preview Assets.xcassets in Resources */,
 				F86D76642C9BFB5300344C9B /* samplequote.json in Resources */,
 				F86D76572C9BFB0900344C9B /* Assets.xcassets in Resources */,
@@ -187,9 +203,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F86D766C2C9BFE7700344C9B /* Death.swift in Sources */,
+				F8BE60FD2CCC2396009D924E /* Episode.swift in Sources */,
+				F8BE60FB2CCC2294009D924E /* Constants.swift in Sources */,
+				F8BE60FF2CCE4510009D924E /* EpisodeView.swift in Sources */,
 				F86D76552C9BFB0800344C9B /* ContentView.swift in Sources */,
 				F86D76682C9BFD0A00344C9B /* Quote.swift in Sources */,
-				F8BE60F32CCA7E0E009D924E /* QuoteView.swift in Sources */,
+				F8BE60F32CCA7E0E009D924E /* FetchView.swift in Sources */,
+				F8BE60F92CCC218F009D924E /* StringExt.swift in Sources */,
 				F86D76532C9BFB0800344C9B /* BBQuotes17App.swift in Sources */,
 				F86D766F2C9C00E100344C9B /* FetchService.swift in Sources */,
 				F8BE60F52CCBDA56009D924E /* CharacterView.swift in Sources */,
