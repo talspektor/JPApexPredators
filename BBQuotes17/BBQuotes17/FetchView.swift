@@ -79,7 +79,7 @@ struct FetchView: View {
                                 }
                                 .frame(width: geo.size.width / 1.1, height: geo.size.height / 1.8)
                                 
-                                Text(vm.quote.character)
+                                Text(vm.randomCharacter.name)
                                     .foregroundStyle(.white)
                                     .padding(10)
                                     .frame(maxWidth: .infinity)
