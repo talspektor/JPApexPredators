@@ -14,6 +14,7 @@ class ViewModel {
         case fetching
         case successQuote
         case successEpisode
+        case successCharacter
         case failed(error: Error)
     }
     
@@ -24,6 +25,7 @@ class ViewModel {
     var quote: Quote
     var character: Character
     var episode: Episode
+    var randomCharacter: Character
     
     init() {
         let decoder = JSONDecoder()
@@ -37,6 +39,9 @@ class ViewModel {
         
         let episodeData = try! Data(contentsOf: Bundle.main.url(forResource: "sampleepisode", withExtension: "json")!)
         episode = try! decoder.decode(Episode.self, from: episodeData)
+        
+        let randomCharacterData = try! Data(contentsOf: Bundle.main.url(forResource: "samplecharacter", withExtension: "json")!)
+        randomCharacter = try! decoder.decode(Character.self, from: randomCharacterData)
     }
     
     func getQuoteData(for show: String) async {
@@ -64,6 +69,18 @@ class ViewModel {
                 
                 status = .successEpisode
             }
+        } catch {
+            status = .failed(error: error)
+        }
+    }
+    
+    func getCharacter(for show: String) async {
+        status = .fetching
+        
+        do {
+            randomCharacter = try await fertcher.fetchRandomCharacter(from: show)
+                
+            status = .successCharacter
         } catch {
             status = .failed(error: error)
         }

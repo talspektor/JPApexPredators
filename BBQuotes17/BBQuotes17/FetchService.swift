@@ -51,6 +51,25 @@ struct FetchService {
         return characters[0]
     }
     
+    func fetchRandomCharacter(from show: String) async throws -> Character {
+        let characterURL = baseURL.appending(path: "characters/random")
+        let fetchUrl = characterURL.appending(queryItems: [URLQueryItem(name: "production", value: show)])
+        
+        let (data, response) = try await URLSession.shared.data(from: fetchUrl)
+        
+        guard let response = response as? HTTPURLResponse,
+              response.statusCode == 200 else {
+            throw FetchError.badResponse
+        }
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        let character = try decoder.decode(Character.self, from: data)
+        
+        return character
+    }
+    
     func fetchDeath(for character: String) async throws -> Death? {
         let fetchUrl = baseURL.appendingPathComponent("deaths")
         
